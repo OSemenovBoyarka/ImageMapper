@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15B42" minimumToolsVersion="Automatic">
+    <entity name="Document" representedClassName=".Document">
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString="New Document" indexed="YES" syncable="YES"/>
+        <relationship name="hyperlinks" toMany="YES" deletionRule="Cascade" destinationEntity="Hyperlink" inverseName="document" inverseEntity="Hyperlink" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="Hyperlink" representedClassName=".Hyperlink" syncable="YES">
+        <attribute name="centerX" attributeType="Double" minValueString="0" maxValueString="1" syncable="YES"/>
+        <attribute name="centerY" attributeType="Double" minValueString="0" maxValueString="1" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="size" attributeType="Integer 16" minValueString="0" defaultValueString="16" syncable="YES"/>
+        <relationship name="document" maxCount="1" deletionRule="Cascade" destinationEntity="Document" inverseName="hyperlinks" inverseEntity="Document" syncable="YES"/>
+        <relationship name="hyperlinks" toMany="YES" deletionRule="Cascade" destinationEntity="Hyperlink" inverseName="parent" inverseEntity="Hyperlink" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hyperlink" inverseName="hyperlinks" inverseEntity="Hyperlink" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Document" positionX="340" positionY="171" width="128" height="88"/>
+        <element name="Hyperlink" positionX="574" positionY="249" width="128" height="148"/>
+    </elements>
+</model>

@@ -1,5 +1,5 @@
 //
-//  DocumentMasterViewController.swift
+//  DocumentsListViewController.swift
 //  ImageMapper
 //
 //  Created by Alexander Semenov on 10/22/15.
@@ -11,7 +11,7 @@ import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
-    var detailViewController: DetailViewController? = nil
+    var detailViewController: HyperLinkViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
 
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? HyperLinkViewController
         }
     }
 
@@ -84,7 +84,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
             let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! HyperLinkViewController
                 controller.link = object as? Hyperlink
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true

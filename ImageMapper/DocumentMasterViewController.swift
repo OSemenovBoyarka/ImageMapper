@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  DocumentMasterViewController.swift
 //  ImageMapper
 //
 //  Created by Alexander Semenov on 10/22/15.
@@ -9,18 +9,17 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "createNewDocument:")
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -32,27 +31,49 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
     }
+    
+    //MARK: - Document creation
+    func createNewDocument(sender: AnyObject){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = false
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        presentViewController(picker, animated: true, completion: nil)
     }
-
-    func insertNewObject(sender: AnyObject) {
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        var newImage: UIImage
+        
+        if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            newImage = possibleImage
+//            saveNewDocument(newImage);
+        }
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func saveNewDocument(rootImage: UIImage) {
         let context = self.fetchedResultsController.managedObjectContext
         let entityDescription = self.fetchedResultsController.fetchRequest.entity!
         let newDocument = Document(entity: entityDescription, insertIntoManagedObjectContext: managedObjectContext)
     
 
-        newDocument.name = "Test";
+        newDocument.name = "New Document";
              
         // Save the context.
         do {
             try context.save()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //print("Unresolved error \(error), \(error.userInfo)")
+            let alert = UIAlertController(title: "Error",
+                                        message: "Can't create new document, try to free up some disk space",
+                                        preferredStyle: UIAlertControllerStyle.Alert
+            )
+
+            self.showViewController(alert, sender: self)
+            //TODO remove this before send project
             abort()
         }
     }
@@ -185,15 +206,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
     }
-
-    /*
-     // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
-     
-     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-         // In the simplest, most efficient, case, reload the table view.
-         self.tableView.reloadData()
-     }
-     */
 
 }
 

@@ -16,7 +16,7 @@
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hyperlink" inverseName="hyperlinks" inverseEntity="Hyperlink" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Document" positionX="340" positionY="171" width="128" height="88"/>
+        <element name="Document" positionX="340" positionY="171" width="128" height="90"/>
         <element name="Hyperlink" positionX="574" positionY="249" width="128" height="148"/>
     </elements>
 </model>

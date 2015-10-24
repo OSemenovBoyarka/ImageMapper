@@ -14,7 +14,7 @@ import CoreData
 
 extension Hyperlink {
 
-    @NSManaged var image: NSData?
+    @NSManaged var image: NSData
     @NSManaged var centerX: Double
     @NSManaged var centerY: Double
     @NSManaged var size: Int16

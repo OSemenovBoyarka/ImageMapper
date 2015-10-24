@@ -15,7 +15,7 @@ import CoreData
 extension Document {
 
     @NSManaged var name: String?
-    @NSManaged var image: NSData?
+    @NSManaged var image: NSData
     @NSManaged var hyperlinks: NSSet?
 
 }

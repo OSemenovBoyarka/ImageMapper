@@ -41,9 +41,9 @@ class DocumentsListViewController: UITableViewController, NSFetchedResultsContro
         let actionSheet = UIAlertController(title: "Select image for new document", message: nil, preferredStyle: .ActionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Take photo", style: .Default, handler: { (action) in
+            //TODO check camera permissions
             self.showImagePickerWithSource(.Camera, sender: sender)
         }))
-        
         
         actionSheet.addAction(UIAlertAction(title: "Use photo library", style: .Default, handler: { (action) in
              self.showImagePickerWithSource(.PhotoLibrary, sender: sender)
@@ -86,7 +86,9 @@ class DocumentsListViewController: UITableViewController, NSFetchedResultsContro
             let newDocument = Document(entity: entityDescription, insertIntoManagedObjectContext: self.backgroundContext)
 
             newDocument.name = "New Document";
-            newDocument.image = UIImagePNGRepresentation(rootImage)!;
+            //TODO extract this to entity class
+            //jpeg with 90% quality will be more, than enough, we don't need transparency here, so no problem
+            newDocument.image = UIImageJPEGRepresentation(rootImage, 90)!;
 
             // Save the context.
             do {

@@ -38,11 +38,32 @@ class DocumentsListViewController: UITableViewController, NSFetchedResultsContro
 
     //MARK: - Document creation
     func createNewDocument(sender: AnyObject) {
+        let actionSheet = UIAlertController(title: "Select image for new document", message: nil, preferredStyle: .ActionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Take photo", style: .Default, handler: { (action) in
+            self.showImagePickerWithSource(.Camera, sender: sender)
+        }))
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Use photo library", style: .Default, handler: { (action) in
+             self.showImagePickerWithSource(.PhotoLibrary, sender: sender)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        self.presentViewController(actionSheet, animated: true, completion: nil)
+        actionSheet.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+
+
+
+    }
+    
+    func showImagePickerWithSource(source: UIImagePickerControllerSourceType, sender: AnyObject){
         let picker = UIImagePickerController()
         picker.delegate = self
-        picker.allowsEditing = false
-
-        presentViewController(picker, animated: true, completion: nil)
+        picker.sourceType = source
+        self.presentViewController(picker, animated: true, completion: nil)
+        picker.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
     }
 
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

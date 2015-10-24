@@ -14,7 +14,9 @@ class HyperLinkViewController: UIViewController {
 
     @IBOutlet weak var rootImage: UIImageView!
     var pendingHypelink: Hyperlink?
-
+    
+    var hyperLinkViews: [HyperlinkView] = []
+    
     var managedContext: NSManagedObjectContext?
     var document: Document? {
         didSet {
@@ -42,12 +44,24 @@ class HyperLinkViewController: UIViewController {
         if let imageView = self.rootImage {
             if let document = self.document {
                 imageView.image = UIImage(data: document.image)
+                imageView.layoutIfNeeded()
+                imageView.sizeToFit()
+                for hyperLink in document.hyperlinks! {
+                    self.addLinkView(hyperLink as! Hyperlink)
+                }
                 return
             }
             //no image - no fun :)
             //TODO pop back in that case
             self.navigationController!.popViewControllerAnimated(true)
         }
+    }
+    
+    func addLinkView(link: Hyperlink){
+        //view will position itself
+        let view = HyperlinkView.viewWithLink(link)
+        self.rootImage.addSubview(view)
+        self.hyperLinkViews.append(view)
     }
     
     // MARK - gestures recognition
@@ -82,6 +96,7 @@ class HyperLinkViewController: UIViewController {
         let hyperLink = self.pendingHypelink!
         self.pendingHypelink = nil
         self.document?.mutableSetValueForKey("hyperlinks").addObject(hyperLink)
+        self.addLinkView(hyperLink)
         
         if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             //create new hyperlink uses image conversion, so we need to perform it in background
@@ -93,7 +108,6 @@ class HyperLinkViewController: UIViewController {
             self.managedContext?.deleteObject(hyperLink);
         }
     }
-
    
 }
 

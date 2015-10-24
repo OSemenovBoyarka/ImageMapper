@@ -44,8 +44,4 @@ extension UIViewController : UIImagePickerControllerDelegate, UINavigationContro
         picker.popoverPresentationController?.sourceView = sender as? UIView
     }
     
-    
-    
-    
-    
-}
+  }

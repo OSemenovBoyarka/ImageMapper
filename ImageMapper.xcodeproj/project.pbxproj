@@ -21,6 +21,7 @@
 		FA6E77491BDBEADD009B735A /* Hyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E77471BDBEADD009B735A /* Hyperlink.swift */; settings = {ASSET_TAGS = (); }; };
 		FA6E774D1BDBF983009B735A /* UIViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E774C1BDBF983009B735A /* UIViewController+ImagePicker.swift */; settings = {ASSET_TAGS = (); }; };
 		FA6E77501BDC01CF009B735A /* HyperlinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E774F1BDC01CF009B735A /* HyperlinkView.swift */; settings = {ASSET_TAGS = (); }; };
+		FA6E77521BDC140C009B735A /* HyperlinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6E77511BDC140C009B735A /* HyperlinkView.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		FA6E77471BDBEADD009B735A /* Hyperlink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hyperlink.swift; sourceTree = "<group>"; };
 		FA6E774C1BDBF983009B735A /* UIViewController+ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ImagePicker.swift"; sourceTree = "<group>"; };
 		FA6E774F1BDC01CF009B735A /* HyperlinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HyperlinkView.swift; sourceTree = "<group>"; };
+		FA6E77511BDC140C009B735A /* HyperlinkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HyperlinkView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6E774F1BDC01CF009B735A /* HyperlinkView.swift */,
+				FA6E77511BDC140C009B735A /* HyperlinkView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				FA4B097F1BD83E200014B289 /* LaunchScreen.storyboard in Resources */,
 				FA4B097C1BD83E200014B289 /* Assets.xcassets in Resources */,
 				FA4B097A1BD83E200014B289 /* Main.storyboard in Resources */,
+				FA6E77521BDC140C009B735A /* HyperlinkView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DocumentsListViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DocumentsListViewController: UITableViewController {
 
     var detailViewController: HyperLinkViewController? = nil
     var documentManager = DocumentManager.sharedManager
@@ -45,39 +45,19 @@ class DocumentsListViewController: UITableViewController, UIImagePickerControlle
     //MARK: - Document management
     func createNewDocument(sender: AnyObject) {
         //TODO add filename editing and open newly created file
-        let actionSheet = UIAlertController(title: "Select image for new document", message: nil, preferredStyle: .ActionSheet)
-        
-        actionSheet.addAction(UIAlertAction(title: "Take photo", style: .Default, handler: { (action) in
-            //TODO check camera permissions
-            self.showImagePickerWithSource(.Camera, sender: sender)
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "Use photo library", style: .Default, handler: { (action) in
-             self.showImagePickerWithSource(.PhotoLibrary, sender: sender)
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        
-        self.presentViewController(actionSheet, animated: true, completion: nil)
-        actionSheet.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+        self.showImagePicker("Select image for new document", message: nil, sender: sender)
     }
     
-    func showImagePickerWithSource(source: UIImagePickerControllerSourceType, sender: AnyObject){
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = source
-        self.presentViewController(picker, animated: true, completion: nil)
-        picker.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
-    }
-    
-
+ 
 
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:AnyObject]) {
+        dismissViewControllerAnimated(true, completion: nil)
         if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            //TODO open newly created document
             //create new document uses image conversion, so we need to perform it in background
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 let handler = {(success: Bool) -> Void in
@@ -89,7 +69,6 @@ class DocumentsListViewController: UITableViewController, UIImagePickerControlle
                 self.documentManager.createNewDocumentNamed("New Document", rootImage: originalImage,completionHandler: handler)
             }
         }
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
     

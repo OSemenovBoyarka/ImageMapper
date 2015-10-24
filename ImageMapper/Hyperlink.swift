@@ -12,7 +12,7 @@ import CoreData
 class Hyperlink: NSManagedObject {
     static let entityName = "Hyperlink"
 
-    static func createInConext(context:NSManagedObjectContext) -> Document {
-        return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: context) as! Document
+    static func createInConext(context:NSManagedObjectContext) -> Hyperlink {
+        return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: context) as! Hyperlink
     }
 }

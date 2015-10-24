@@ -19,6 +19,8 @@
 		FA6E77421BDBDA06009B735A /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E773E1BDBDA06009B735A /* Document.swift */; settings = {ASSET_TAGS = (); }; };
 		FA6E77481BDBEADD009B735A /* Hyperlink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E77461BDBEADD009B735A /* Hyperlink+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		FA6E77491BDBEADD009B735A /* Hyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E77471BDBEADD009B735A /* Hyperlink.swift */; settings = {ASSET_TAGS = (); }; };
+		FA6E774D1BDBF983009B735A /* UIViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E774C1BDBF983009B735A /* UIViewController+ImagePicker.swift */; settings = {ASSET_TAGS = (); }; };
+		FA6E77501BDC01CF009B735A /* HyperlinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E774F1BDC01CF009B735A /* HyperlinkView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		FA6E773E1BDBDA06009B735A /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		FA6E77461BDBEADD009B735A /* Hyperlink+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hyperlink+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA6E77471BDBEADD009B735A /* Hyperlink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hyperlink.swift; sourceTree = "<group>"; };
+		FA6E774C1BDBF983009B735A /* UIViewController+ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ImagePicker.swift"; sourceTree = "<group>"; };
+		FA6E774F1BDC01CF009B735A /* HyperlinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HyperlinkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		FA4B096E1BD83E200014B289 /* ImageMapper */ = {
 			isa = PBXGroup;
 			children = (
+				FA6E774E1BDC014C009B735A /* View */,
 				FA6E77281BDAC883009B735A /* Controllers */,
 				FA5D719A1BD97CF00051F408 /* Models */,
 				FA4B096F1BD83E200014B289 /* AppDelegate.swift */,
@@ -121,8 +126,17 @@
 			children = (
 				FA4B09741BD83E200014B289 /* DocumentsListViewController.swift */,
 				FA4B09761BD83E200014B289 /* HyperLinkViewController.swift */,
+				FA6E774C1BDBF983009B735A /* UIViewController+ImagePicker.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FA6E774E1BDC014C009B735A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E774F1BDC01CF009B735A /* HyperlinkView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +213,8 @@
 				FA4B09701BD83E200014B289 /* AppDelegate.swift in Sources */,
 				FA6E772A1BDB8268009B735A /* DocumentManager.swift in Sources */,
 				FA4B09751BD83E200014B289 /* DocumentsListViewController.swift in Sources */,
+				FA6E774D1BDBF983009B735A /* UIViewController+ImagePicker.swift in Sources */,
+				FA6E77501BDC01CF009B735A /* HyperlinkView.swift in Sources */,
 				FA6E77491BDBEADD009B735A /* Hyperlink.swift in Sources */,
 				FA6E77421BDBDA06009B735A /* Document.swift in Sources */,
 				FA6E77481BDBEADD009B735A /* Hyperlink+CoreDataProperties.swift in Sources */,

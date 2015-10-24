@@ -14,31 +14,10 @@
 		FA4B097A1BD83E200014B289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4B09781BD83E200014B289 /* Main.storyboard */; };
 		FA4B097C1BD83E200014B289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4B097B1BD83E200014B289 /* Assets.xcassets */; };
 		FA4B097F1BD83E200014B289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4B097D1BD83E200014B289 /* LaunchScreen.storyboard */; };
-		FA4B098A1BD83E200014B289 /* ImageMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B09891BD83E200014B289 /* ImageMapperTests.swift */; };
-		FA4B09951BD83E200014B289 /* ImageMapperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B09941BD83E200014B289 /* ImageMapperUITests.swift */; };
-		FA5D719F1BD97D850051F408 /* Hyperlink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D719B1BD97D850051F408 /* Hyperlink+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		FA5D71A01BD97D850051F408 /* Hyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D719C1BD97D850051F408 /* Hyperlink.swift */; settings = {ASSET_TAGS = (); }; };
-		FA5D71A11BD97D850051F408 /* Document+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D719D1BD97D850051F408 /* Document+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		FA5D71A21BD97D850051F408 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5D719E1BD97D850051F408 /* Document.swift */; settings = {ASSET_TAGS = (); }; };
-		FA6E772A1BDB8268009B735A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E77291BDB8268009B735A /* CoreDataManager.swift */; settings = {ASSET_TAGS = (); }; };
+		FA6E772A1BDB8268009B735A /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E77291BDB8268009B735A /* DocumentManager.swift */; settings = {ASSET_TAGS = (); }; };
+		FA6E77411BDBDA06009B735A /* Document+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E773D1BDBDA06009B735A /* Document+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		FA6E77421BDBDA06009B735A /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E773E1BDBDA06009B735A /* Document.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FA4B09861BD83E200014B289 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA4B09641BD83E200014B289 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA4B096B1BD83E200014B289;
-			remoteInfo = ImageMapper;
-		};
-		FA4B09911BD83E200014B289 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA4B09641BD83E200014B289 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA4B096B1BD83E200014B289;
-			remoteInfo = ImageMapper;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FA4B096C1BD83E200014B289 /* ImageMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,35 +29,17 @@
 		FA4B097B1BD83E200014B289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA4B097E1BD83E200014B289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA4B09801BD83E200014B289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA4B09851BD83E200014B289 /* ImageMapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageMapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4B09891BD83E200014B289 /* ImageMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMapperTests.swift; sourceTree = "<group>"; };
 		FA4B098B1BD83E200014B289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA4B09901BD83E200014B289 /* ImageMapperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageMapperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4B09941BD83E200014B289 /* ImageMapperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMapperUITests.swift; sourceTree = "<group>"; };
 		FA4B09961BD83E200014B289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA5D719B1BD97D850051F408 /* Hyperlink+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Hyperlink+CoreDataProperties.swift"; path = "../Hyperlink+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FA5D719C1BD97D850051F408 /* Hyperlink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hyperlink.swift; path = ../Hyperlink.swift; sourceTree = "<group>"; };
-		FA5D719D1BD97D850051F408 /* Document+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Document+CoreDataProperties.swift"; path = "../Document+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FA5D719E1BD97D850051F408 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = ../Document.swift; sourceTree = "<group>"; };
-		FA6E77291BDB8268009B735A /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FA6E77291BDB8268009B735A /* DocumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
+		FA6E773D1BDBDA06009B735A /* Document+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Document+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA6E773E1BDBDA06009B735A /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FA4B09691BD83E200014B289 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA4B09821BD83E200014B289 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA4B098D1BD83E200014B289 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -102,8 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				FA4B096C1BD83E200014B289 /* ImageMapper.app */,
-				FA4B09851BD83E200014B289 /* ImageMapperTests.xctest */,
-				FA4B09901BD83E200014B289 /* ImageMapperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,7 +73,7 @@
 				FA6E77281BDAC883009B735A /* Controllers */,
 				FA5D719A1BD97CF00051F408 /* Models */,
 				FA4B096F1BD83E200014B289 /* AppDelegate.swift */,
-				FA6E77291BDB8268009B735A /* CoreDataManager.swift */,
+				FA6E77291BDB8268009B735A /* DocumentManager.swift */,
 				FA4B09781BD83E200014B289 /* Main.storyboard */,
 				FA4B097B1BD83E200014B289 /* Assets.xcassets */,
 				FA4B097D1BD83E200014B289 /* LaunchScreen.storyboard */,
@@ -145,10 +104,8 @@
 		FA5D719A1BD97CF00051F408 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA5D719B1BD97D850051F408 /* Hyperlink+CoreDataProperties.swift */,
-				FA5D719C1BD97D850051F408 /* Hyperlink.swift */,
-				FA5D719D1BD97D850051F408 /* Document+CoreDataProperties.swift */,
-				FA5D719E1BD97D850051F408 /* Document.swift */,
+				FA6E773D1BDBDA06009B735A /* Document+CoreDataProperties.swift */,
+				FA6E773E1BDBDA06009B735A /* Document.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -182,42 +139,6 @@
 			productReference = FA4B096C1BD83E200014B289 /* ImageMapper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FA4B09841BD83E200014B289 /* ImageMapperTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA4B099C1BD83E200014B289 /* Build configuration list for PBXNativeTarget "ImageMapperTests" */;
-			buildPhases = (
-				FA4B09811BD83E200014B289 /* Sources */,
-				FA4B09821BD83E200014B289 /* Frameworks */,
-				FA4B09831BD83E200014B289 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA4B09871BD83E200014B289 /* PBXTargetDependency */,
-			);
-			name = ImageMapperTests;
-			productName = ImageMapperTests;
-			productReference = FA4B09851BD83E200014B289 /* ImageMapperTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FA4B098F1BD83E200014B289 /* ImageMapperUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA4B099F1BD83E200014B289 /* Build configuration list for PBXNativeTarget "ImageMapperUITests" */;
-			buildPhases = (
-				FA4B098C1BD83E200014B289 /* Sources */,
-				FA4B098D1BD83E200014B289 /* Frameworks */,
-				FA4B098E1BD83E200014B289 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA4B09921BD83E200014B289 /* PBXTargetDependency */,
-			);
-			name = ImageMapperUITests;
-			productName = ImageMapperUITests;
-			productReference = FA4B09901BD83E200014B289 /* ImageMapperUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,14 +149,6 @@
 				TargetAttributes = {
 					FA4B096B1BD83E200014B289 = {
 						CreatedOnToolsVersion = 7.0.1;
-					};
-					FA4B09841BD83E200014B289 = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = FA4B096B1BD83E200014B289;
-					};
-					FA4B098F1BD83E200014B289 = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = FA4B096B1BD83E200014B289;
 					};
 				};
 			};
@@ -253,8 +166,6 @@
 			projectRoot = "";
 			targets = (
 				FA4B096B1BD83E200014B289 /* ImageMapper */,
-				FA4B09841BD83E200014B289 /* ImageMapperTests */,
-				FA4B098F1BD83E200014B289 /* ImageMapperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -270,20 +181,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA4B09831BD83E200014B289 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA4B098E1BD83E200014B289 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -291,48 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA5D71A21BD97D850051F408 /* Document.swift in Sources */,
+				FA6E77411BDBDA06009B735A /* Document+CoreDataProperties.swift in Sources */,
 				FA4B09731BD83E200014B289 /* ImageMapper.xcdatamodeld in Sources */,
 				FA4B09701BD83E200014B289 /* AppDelegate.swift in Sources */,
-				FA6E772A1BDB8268009B735A /* CoreDataManager.swift in Sources */,
-				FA5D71A11BD97D850051F408 /* Document+CoreDataProperties.swift in Sources */,
-				FA5D71A01BD97D850051F408 /* Hyperlink.swift in Sources */,
+				FA6E772A1BDB8268009B735A /* DocumentManager.swift in Sources */,
 				FA4B09751BD83E200014B289 /* DocumentsListViewController.swift in Sources */,
-				FA5D719F1BD97D850051F408 /* Hyperlink+CoreDataProperties.swift in Sources */,
+				FA6E77421BDBDA06009B735A /* Document.swift in Sources */,
 				FA4B09771BD83E200014B289 /* HyperLinkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA4B09811BD83E200014B289 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA4B098A1BD83E200014B289 /* ImageMapperTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA4B098C1BD83E200014B289 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA4B09951BD83E200014B289 /* ImageMapperUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FA4B09871BD83E200014B289 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA4B096B1BD83E200014B289 /* ImageMapper */;
-			targetProxy = FA4B09861BD83E200014B289 /* PBXContainerItemProxy */;
-		};
-		FA4B09921BD83E200014B289 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA4B096B1BD83E200014B289 /* ImageMapper */;
-			targetProxy = FA4B09911BD83E200014B289 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FA4B09781BD83E200014B289 /* Main.storyboard */ = {
@@ -461,54 +327,6 @@
 			};
 			name = Release;
 		};
-		FA4B099D1BD83E200014B289 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ImageMapperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobilechallenge.ImageMapperTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageMapper.app/ImageMapper";
-			};
-			name = Debug;
-		};
-		FA4B099E1BD83E200014B289 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ImageMapperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobilechallenge.ImageMapperTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageMapper.app/ImageMapper";
-			};
-			name = Release;
-		};
-		FA4B09A01BD83E200014B289 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ImageMapperUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobilechallenge.ImageMapperUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ImageMapper;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		FA4B09A11BD83E200014B289 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ImageMapperUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobilechallenge.ImageMapperUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ImageMapper;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -526,24 +344,6 @@
 			buildConfigurations = (
 				FA4B099A1BD83E200014B289 /* Debug */,
 				FA4B099B1BD83E200014B289 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA4B099C1BD83E200014B289 /* Build configuration list for PBXNativeTarget "ImageMapperTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA4B099D1BD83E200014B289 /* Debug */,
-				FA4B099E1BD83E200014B289 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA4B099F1BD83E200014B289 /* Build configuration list for PBXNativeTarget "ImageMapperUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA4B09A01BD83E200014B289 /* Debug */,
-				FA4B09A11BD83E200014B289 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

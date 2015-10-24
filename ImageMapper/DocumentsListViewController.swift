@@ -26,6 +26,9 @@ class DocumentsListViewController: UITableViewController, NSFetchedResultsContro
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? HyperLinkViewController
         }
+
+        // This will remove extra separators from tableview
+        self.tableView.tableFooterView = UIView()
     }
 
     override func viewWillAppear(animated: Bool) {

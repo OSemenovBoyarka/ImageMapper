@@ -29,24 +29,53 @@ class HyperLinkViewController: UIViewController {
             self.setViewsContent()
         }
     }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        for linkView in self.hyperLinkViews {
+            linkView.editing = editing
+        }
+    }
+    
+    var hyperLink: Hyperlink? {
+        didSet {
+            if let context = hyperLink?.managedObjectContext{
+                self.managedContext = context
+            } else {
+                self.managedContext = nil
+            }
+            // Update the view.
+            self.setViewsContent()
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setViewsContent()
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
-        self.rootImage!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "hadleTapMainImage:"))
+        self.rootImage!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "handleTapMainImage:"))
         
     }
     
     func setViewsContent() {
         //if we haven't imageview set- should
         if let imageView = self.rootImage {
+            //TODO remove code duplication
             if let document = self.document {
                 imageView.image = UIImage(data: document.image)
                 imageView.layoutIfNeeded()
                 imageView.sizeToFit()
                 for hyperLink in document.hyperlinks! {
+                    self.addLinkView(hyperLink as! Hyperlink)
+                }
+                return
+            } else if let hyperLink = self.hyperLink{
+                imageView.image = UIImage(data: hyperLink.image)
+                imageView.layoutIfNeeded()
+                imageView.sizeToFit()
+                for hyperLink in hyperLink.hyperlinks! {
                     self.addLinkView(hyperLink as! Hyperlink)
                 }
                 return
@@ -60,12 +89,14 @@ class HyperLinkViewController: UIViewController {
     func addLinkView(link: Hyperlink){
         //view will position itself
         let view = HyperlinkView.viewWithLink(link)
+        view.editing = self.editing
         self.rootImage.addSubview(view)
         self.hyperLinkViews.append(view)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "handleTapHyperLink:"))
     }
     
     // MARK - gestures recognition
-    func hadleTapMainImage(recognizer: UITapGestureRecognizer){
+    func handleTapMainImage(recognizer: UITapGestureRecognizer){
 //        if we are not in editing mode - nothing to do here
         if !self.editing {
             return
@@ -83,12 +114,49 @@ class HyperLinkViewController: UIViewController {
         
     }
     
+    func handleTapHyperLink(recognizer: UITapGestureRecognizer){
+        // pop remove dialog if in edit mode
+        if self.editing {
+            //TODO add undo support
+            let alert = UIAlertController(title: "Delete link", message: "You can't recover your link, delete it?", preferredStyle: .ActionSheet)
+            alert.addAction(UIAlertAction(title: "Delete hyperlink", style: .Destructive, handler: { _ in
+                self.managedContext?.performBlockAndWait({
+                    let linkView = recognizer.view as! HyperlinkView
+                    let hyperLink = linkView.hyperLink!
+                    self.document?.mutableSetValueForKey("hyperlinks").removeObject(hyperLink)
+                    self.managedContext?.deleteObject(hyperLink)
+                    do {
+                        try self.managedContext?.save()
+                    } catch {
+                        print("can't ")
+                    }
+                    linkView.removeFromSuperview();
+                    self.hyperLinkViews.removeAtIndex(self.hyperLinkViews.indexOf(linkView)!)
+                })
+       
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            alert.popoverPresentationController?.sourceView = recognizer.view
+            return
+        }
+        
+        let linkView = recognizer.view as! HyperlinkView
+        let hyperLinkController = self.storyboard?.instantiateViewControllerWithIdentifier("HyperLinkViewController") as! HyperLinkViewController
+        hyperLinkController.hyperLink = linkView.hyperLink
+        self.navigationController?.pushViewController(hyperLinkController, animated: true)
+        
+    }
+
+    
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
         if let hyperLink = self.pendingHypelink {
             self.managedContext?.deleteObject(hyperLink);
         }
-
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:AnyObject]) {
@@ -101,7 +169,7 @@ class HyperLinkViewController: UIViewController {
         if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             //create new hyperlink uses image conversion, so we need to perform it in background
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                hyperLink.image = UIImageJPEGRepresentation(originalImage, 1.0)
+                hyperLink.image = UIImageJPEGRepresentation(originalImage, 1.0)!
             }
         } else {
             //normally this should never happen, but handle error just in case

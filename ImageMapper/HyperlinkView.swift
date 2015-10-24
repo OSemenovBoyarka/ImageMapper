@@ -13,10 +13,19 @@ class HyperlinkView: UIView {
     
     weak var hyperLink: Hyperlink?
     
+    var editing: Bool! {
+        didSet {
+            if let editing = self.editing {
+                self.layer.borderWidth = editing ? 1 : 0
+            }
+        }
+    }
+    
     static func viewWithLink(link: Hyperlink) -> HyperlinkView{
         let view = NSBundle.mainBundle().loadNibNamed("HyperlinkView", owner: self, options: nil)[0] as! HyperlinkView
         view.hyperLink = link
         view.autoresizingMask = UIViewAutoresizing.None
+        view.layer.borderColor = UIColor.redColor().CGColor
         return view;
     }
     
@@ -26,9 +35,6 @@ class HyperlinkView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        self.layer.borderColor =  UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.7).CGColor
-        self.layer.borderWidth = 1
-        
         if let superSize = self.superview?.frame.size{
             let x = hyperLink!.centerX * Double(superSize.width)
             let y = hyperLink!.centerY * Double(superSize.height)

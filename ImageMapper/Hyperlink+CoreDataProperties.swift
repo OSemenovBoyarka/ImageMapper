@@ -16,7 +16,7 @@ extension Hyperlink {
 
     @NSManaged var centerX: Double
     @NSManaged var centerY: Double
-    @NSManaged var image: NSData?
+    @NSManaged var image: NSData
     @NSManaged var size: Int16
     @NSManaged var document: Document?
     @NSManaged var hyperlinks: NSSet?

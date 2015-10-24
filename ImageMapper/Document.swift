@@ -2,7 +2,7 @@
 //  Document.swift
 //  ImageMapper
 //
-//  Created by Alexander Semenov on 10/24/15.
+//  Created by who knows? on 10/24/15.
 //
 //
 

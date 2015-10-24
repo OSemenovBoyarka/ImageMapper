@@ -2,7 +2,7 @@
 //  DetailViewController.swift
 //  ImageMapper
 //
-//  Created by Alexander Semenov on 10/22/15.
+//  Created by who knows? on 10/22/15.
 //
 //
 
@@ -93,9 +93,26 @@ class HyperLinkViewController: UIViewController {
         self.rootImage.addSubview(view)
         self.hyperLinkViews.append(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "handleTapHyperLink:"))
+        view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "moveViewWithGestureRecognizer:"))
     }
     
     // MARK - gestures recognition
+    
+    func moveViewWithGestureRecognizer(recognizer: UIPanGestureRecognizer){
+        if !self.editing {
+            return
+        }
+        let linkView = recognizer.view as! HyperlinkView
+        
+        
+        let touchLocation = recognizer.locationInView(self.rootImage)
+        let rootSize = self.rootImage.frame.size
+        linkView.hyperLink!.centerX = Double(touchLocation.x/rootSize.width)
+        linkView.hyperLink!.centerY = Double(touchLocation.y/rootSize.height)
+
+        linkView.center = touchLocation;
+    }
+    
     func handleTapMainImage(recognizer: UITapGestureRecognizer){
 //        if we are not in editing mode - nothing to do here
         if !self.editing {
@@ -120,20 +137,12 @@ class HyperLinkViewController: UIViewController {
             //TODO add undo support
             let alert = UIAlertController(title: "Delete link", message: "You can't recover your link, delete it?", preferredStyle: .ActionSheet)
             alert.addAction(UIAlertAction(title: "Delete hyperlink", style: .Destructive, handler: { _ in
-                self.managedContext?.performBlockAndWait({
                     let linkView = recognizer.view as! HyperlinkView
                     let hyperLink = linkView.hyperLink!
                     self.document?.mutableSetValueForKey("hyperlinks").removeObject(hyperLink)
                     self.managedContext?.deleteObject(hyperLink)
-                    do {
-                        try self.managedContext?.save()
-                    } catch {
-                        print("can't ")
-                    }
                     linkView.removeFromSuperview();
                     self.hyperLinkViews.removeAtIndex(self.hyperLinkViews.indexOf(linkView)!)
-                })
-       
             }))
             
             alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))

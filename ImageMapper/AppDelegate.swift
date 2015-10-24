@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ImageMapper
 //
-//  Created by Alexander Semenov on 10/22/15.
+//  Created by who knows? on 10/22/15.
 //
 //
 

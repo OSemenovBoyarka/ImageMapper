@@ -30,7 +30,7 @@ class DocumentManager {
         let context:NSManagedObjectContext = document.managedObjectContext
 
         let rootEntity = Document.createInConext(context)
-        rootEntity.image = UIImagePNGRepresentation(rootImage)!
+        rootEntity.image = UIImageJPEGRepresentation(rootImage, 1.0)!
     
         document.saveToURL(url, forSaveOperation: .ForCreating, completionHandler: completionHandler)
         return document;

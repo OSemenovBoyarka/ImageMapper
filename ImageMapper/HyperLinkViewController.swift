@@ -20,6 +20,12 @@ class HyperLinkViewController: UIViewController {
         }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.configureView()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
     func configureView() {
         //if we haven't imageview set- should
         if let imageView = self.rootImage {
@@ -33,9 +39,6 @@ class HyperLinkViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.configureView()
-    }
+   
 }
 

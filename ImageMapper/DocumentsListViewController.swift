@@ -44,6 +44,7 @@ class DocumentsListViewController: UITableViewController, UIImagePickerControlle
     
     //MARK: - Document management
     func createNewDocument(sender: AnyObject) {
+        //TODO add filename editing and open newly created file
         let actionSheet = UIAlertController(title: "Select image for new document", message: nil, preferredStyle: .ActionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Take photo", style: .Default, handler: { (action) in

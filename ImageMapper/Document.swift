@@ -12,7 +12,7 @@ import UIKit
 
 class Document: NSManagedObject {
     static let entityName = "Document"
-// Insert code here to add functionality to your managed object subclass
+    
     static func createInConext(context:NSManagedObjectContext) -> Document {
         return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: context) as! Document
     }
